@@ -1,0 +1,171 @@
+       /* All previous styles remain exactly the same until .btn styles */
+       * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+        background: linear-gradient(45deg, #712648, #193885);
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        perspective: 1000px;
+    }
+
+    .background-hearts {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 0;
+    }
+
+    .container {
+        position: relative;
+        text-align: center;
+        background: rgba(255, 255, 255, 0.1);
+        padding: 40px;
+        border-radius: 25px;
+        backdrop-filter: blur(12px);
+        box-shadow: 
+            0 8px 32px 0 rgba(31, 38, 135, 0.37),
+            inset 0 0 30px rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        transform-style: preserve-3d;
+        transition: transform 0.5s ease;
+        max-width: 90%;
+        width: 400px;
+        z-index: 1;
+    }
+
+    .container:hover {
+        transform: translateZ(20px);
+    }
+
+    h1 {
+        font-size: 36px;
+        color: #fff;
+        text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.5);
+        margin-bottom: 20px;
+        transform: translateZ(30px);
+        vector-effect: non-scaling-stroke;
+    }
+
+    .message {
+        color: #fff;
+        font-size: 20px;
+        margin: 20px 0;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        transform: translateZ(25px);
+    }
+
+    .gif-container {
+        position: relative;
+        margin: 20px 0;
+        transform-style: preserve-3d;
+        transform: translateZ(40px);
+    }
+
+    .gif-container img {
+        width: 100%;
+        max-width: 300px;
+        border-radius: 20px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        transition: transform 0.3s ease;
+    }
+
+    .gif-container:hover img {
+        transform: scale(1.05);
+    }
+
+    .btn {
+        position: relative;
+        margin-top: 30px;
+        transform-style: preserve-3d;
+        transform: translateZ(35px);
+        min-height: 100px; /* Added to ensure space for button movement */
+    }
+
+    .btn a {
+        display: inline-block;
+        margin: 15px 10px;
+        padding: 15px 30px;
+        font-size: 18px;
+        font-weight: bold;
+        color: white;
+        text-decoration: none;
+        border-radius: 50px;
+        transition: all 0.4s ease;
+        position: relative;
+        overflow: hidden;
+    }
+
+    #yesButton {
+        background: linear-gradient(45deg, #2ecc71, #27ae60);
+        box-shadow: 0 5px 15px rgba(46, 204, 113, 0.4);
+    }
+
+    #noButton {
+        background: linear-gradient(45deg, #e74c3c, #c0392b);
+        box-shadow: 0 5px 15px rgba(231, 76, 60, 0.4);
+        position: absolute; /* Changed to absolute for movement */
+        transition: all 0.3s ease-out;
+    }
+
+    /* Rest of the styles remain exactly the same */
+    .btn a:hover {
+        transform: translateY(-5px) scale(1.05);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    }
+
+    .heart {
+        position: absolute;
+        font-size: 24px;
+        pointer-events: none;
+        animation: floatHeart 2s ease-in-out forwards;
+        z-index: 0;
+    }
+
+    @keyframes floating {
+        0%, 100% { transform: translateY(0) translateZ(30px); }
+        50% { transform: translateY(-10px) translateZ(30px); }
+    }
+
+    @keyframes floatHeart {
+        0% {
+            opacity: 1;
+            transform: translateY(0) scale(1) rotate(0deg);
+        }
+        100% {
+            opacity: 0;
+            transform: translateY(-100px) scale(1.5) rotate(360deg);
+        }
+    }
+
+    .background-heart {
+        position: absolute;
+        font-size: 30px;
+        color: rgba(255, 255, 255, 0.3);
+        animation: backgroundFloat linear infinite;
+        z-index: -1;
+    }
+
+    @keyframes backgroundFloat {
+        0% {
+            transform: translateY(100vh) scale(1);
+            opacity: 0;
+        }
+        50% {
+            opacity: 0.8;
+        }
+        100% {
+            transform: translateY(-100vh) scale(1.5);
+            opacity: 0;
+        }
+    }
